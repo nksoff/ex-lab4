@@ -42,7 +42,5 @@ def f4(arg):
             zip(arg, gen_random(100000, 200000, len(arg)))]
 
 
-print(f1)
-
-# with timer():
-#    f4(f3(f2(f1(data))))
+with timer():
+    f4(f3(f2(f1(data))))
