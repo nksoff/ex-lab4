@@ -23,12 +23,12 @@ with open(path) as f:
 
 @print_result
 def f1(arg):
-    return sorted(unique(field(arg, 'job-name'), ignore_case=True))
+    return sorted(unique(field(arg, 'job-name'), ignore_case=True), key=str.lower)
 
 
 @print_result
 def f2(arg):
-    return list(filter(lambda x: str(x).startswith('программист'), arg))
+    return list(filter(lambda x: str(x).lower().startswith('программист'), arg))
 
 
 @print_result
@@ -42,5 +42,7 @@ def f4(arg):
             zip(arg, gen_random(100000, 200000, len(arg)))]
 
 
-with timer():
-    f4(f3(f2(f1(data))))
+print(f1)
+
+# with timer():
+#    f4(f3(f2(f1(data))))

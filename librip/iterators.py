@@ -6,14 +6,13 @@ class Unique(object):
         self.seen = set()
 
     def __next__(self):
-        val = self.items.__next__()
-        val = str(val).lower() if self.ignore_case else val
+        while True:
+            val = self.items.__next__()
+            val_compare = str(val).lower() if self.ignore_case else val
 
-        if val not in self.seen:
-            self.seen.add(val)
-            return val
-
-        return self.__next__()
+            if val_compare not in self.seen:
+                self.seen.add(val_compare)
+                return val
 
     def __iter__(self):
         return self

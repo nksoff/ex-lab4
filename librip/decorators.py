@@ -35,8 +35,11 @@
 # test_4
 # 1
 # 2
+import functools
+
 
 def print_result(func):
+    @functools.wraps(func)
     def result(*args, **kwargs):
         val = func(*args, **kwargs)
 
